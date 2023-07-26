@@ -361,9 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-
-##
-#User specified files and folders to ignore
-#Copy.gitignore.2023-07-26
-#TestWebAppMVCDotNet5/
-
