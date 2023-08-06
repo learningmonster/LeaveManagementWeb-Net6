@@ -40,14 +40,28 @@ namespace LeaveManagement.Web.Controllers
                 return NotFound();
             }
 
-            var leaveType = await _context.LeaveTypes
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var leaveType = await _context.LeaveTypes.FindAsync(id);
             if (leaveType == null)
             {
                 return NotFound();
             }
 
-            return View(leaveType);
+            var leaveTypeVM = mapper.Map<LeaveTypeVM>(leaveType);
+            return View(leaveTypeVM);
+
+            //if (id == null || _context.LeaveTypes == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //var leaveType = await _context.LeaveTypes
+            //    .FirstOrDefaultAsync(m => m.Id == id);
+            //if (leaveType == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return View(leaveType);
         }
 
         // GET: LeaveTypes/Create
