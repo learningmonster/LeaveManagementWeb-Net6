@@ -171,6 +171,11 @@ namespace LeaveManagement.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //var leaveType = await _context.LeaveTypes.FindAsync(id);
+            //_context.LeaveTypes.Remove(leaveType);
+            //await _context.SaveChangesAsync();
+            //return RedirectToAction(nameof(Index));
+
             if (_context.LeaveTypes == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.LeaveTypes'  is null.");
@@ -180,7 +185,7 @@ namespace LeaveManagement.Web.Controllers
             {
                 _context.LeaveTypes.Remove(leaveType);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
